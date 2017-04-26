@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SmartDictionary</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+<style type="text/css">
+</style>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".btnSearch").click(function() {
+			var txtSearch = $("#txtSearch").val(); 
+			if(txtSearch == "") {
+				alert('input text please!');
+			}else {
+				$("#isLoading").show();
+				$(".btnSearch").hide();
+				$.ajax({
+				   url: 'http://localhost:3000/getdata?search=' + txtSearch,
+				   error: function() {
+				      alert('Error!');
+				   },
+				   dataType : 'text', 
+				   success: function(result) {
+				    	$("#result").html(result);
+				   },
+				}).done(function() {
+					$("#isLoading").hide();
+					$(".btnSearch").show();
+				});
+			}
+			return false;
+		});
+		
+	});
+</script>
+  <body>
+    <%= yield %>
+  </body>
+</html>
+
+
+
+

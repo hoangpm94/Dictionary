@@ -1,0 +1,45 @@
+<div class="result" style="margin-left: 300px;">
+  <div class="row">
+    <h2 style="color: #3e3e3e; letter-spacing: 1.5px;margin-left: 80px;  margin-top: 80px; margin-bottom: 40px;">Mini Dictionary</h2>
+  </div>
+  	<div class="row">
+  	
+       
+		<div class="row">
+       	<form>
+		  <div class="form-group col-sm-4">
+		    <input type="text" class="form-control" style="margin-bottom: 10px;" placeholder="Input text..." required id="txtSearch" name="search">
+		    
+		   <button type="submit" style="display: none;" class="btn btn-primary pull-right" id = "isLoading">Searching ....</button>
+		   <button type="submit" class="btn btn-primary btnSearch pull-right "  >Search</button> </div>
+
+
+		</form>
+    </div>
+		
+    </div>
+</div>
+
+
+
+<div class="row">
+  <div id="result">
+
+	  <p style="margin-left: 300px; margin-top: 20px;">
+	    	<%= @data.each do |data| %>
+		    	<%= data.text %><br />
+		    <% end %> 
+	  </p>   
+
+	  	<p>
+		 <%= @images.each do |image| %>
+			<%= image %>
+		<% end %>
+		</p> 
+	</div>
+</div>   
+	
+
+
+
+
